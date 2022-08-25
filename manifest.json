@@ -6,7 +6,9 @@
     "version": "0.0.1",
     "icons": {
         "16": "logo/logo-16.png",
-        "48": "logo/logo-48.png",
+        "24": "logo/logo-24.png",
+        "32": "logo/logo-32.png",
+        "64": "logo/logo-64.png",
         "128": "logo/logo-128.png"
     },
     "options_page": "settings/settings.html",
@@ -14,15 +16,13 @@
         "default_title": "Chrome Addon v3 Starter",
         "default_popup": "popup/popup.html"
     },
-    "permissions": [],
-    "host_permissions": [
-        "*://*/*"
-    ],
+    "permissions": ["contextMenus"],
+    "host_permissions": ["<all_urls>"],
     "background": {
         "service_worker": "service-worker.js"
     },
     "content_scripts": [{
         "js": ["foreground.js"],
-        "matches": ["https://github.com/*"]
+        "matches": ["<all_urls>"]
     }]
 }
