@@ -16,7 +16,7 @@
         "default_title": "Chrome Addon v3 Starter",
         "default_popup": "popup/popup.html"
     },
-    "permissions": ["contextMenus"],
+    "permissions": ["contextMenus", "tabs"],
     "host_permissions": ["<all_urls>"],
     "background": {
         "service_worker": "service-worker.js"

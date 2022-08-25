@@ -8,7 +8,7 @@ console.log("This prints to the console of the service worker (background script
 // importScripts('service-worker-utils.js')
 // var seltext = null;
  
-// chrome.extension.onRequest.addListener(function(request, sender, sendResponse)
+// browser.runtime.onMessage.addListener(function(request, sender, sendResponse)
 // {
 //     switch(request.message)
 //     {
@@ -21,7 +21,14 @@ console.log("This prints to the console of the service worker (background script
 //         break;
 //     }
 // });
- 
+// console.log(selText) 
+
+chrome.runtime.onMessage.addListener(reaction);
+
+function reaction(message) {
+    console.log(message)
+}
+
  
 // function savetext(info,tab)
 // {
@@ -38,6 +45,8 @@ console.log("This prints to the console of the service worker (background script
 //     var context = contexts[i];
 //     chrome.contextMenus.create({"id":"123","title": "Send to Server", "contexts":[context], "onclick": savetext});  
 // }
+
+
 
 chrome.runtime.onInstalled.addListener(function() {
     chrome.contextMenus.create({
