@@ -19,7 +19,8 @@ console.log(getText());             //Gives you all the text on the page
 
 window.addEventListener('load', (event) => {
     console.log('page is fully loaded');
-    chrome.runtime.sendMessage({'message':title});
+    chrome.runtime.sendMessage({'message':title},function(response){
+        console.log('response from background',response);});
   });
 
 document.addEventListener('mouseup',function(event)
@@ -28,7 +29,9 @@ document.addEventListener('mouseup',function(event)
     console.log("Selected text: " + sel);
      
     if(sel.length)
-        chrome.runtime.sendMessage({'message':sel})
+        chrome.runtime.sendMessage({'message':sel},function(response){
+            console.log(response);
+        });
 })
 
 
